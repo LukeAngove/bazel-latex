@@ -51,6 +51,19 @@ shutil.copy(luatex_file, "bin/lualatex")
 os.link("bin/lualatex", "bin/luatex")
 shutil.copy("texmf/texmf-dist/scripts/texlive/fmtutil.pl", "bin/mktexfmt")
 
+# Find all directories in included files.
+import re
+with open(main_file) as m:
+    dirs = set(re.findall("\s*\\\include\{([^}]*)/[^}]+\}", m.read()))
+
+# Create all directories. If they already exist, don't worry.
+# This is needed if building files from other directories than the one
+# with the current BUILD.bazel
+import pathlib
+for d in dirs:
+    D = pathlib.Path(d)
+    D.mkdir(exist_ok=True)
+
 return_code = subprocess.call(
     args=[
         latexrun_file,
