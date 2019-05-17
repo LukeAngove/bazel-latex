@@ -2,7 +2,7 @@ def _latex_pdf_impl(ctx):
     toolchain = ctx.toolchains["@bazel_latex//:latex_toolchain_type"]
     ctx.actions.run(
         mnemonic = "LuaLatex",
-        executable = "python",
+        executable = "python3",
         use_default_shell_env = True,
         arguments = [
             "external/bazel_latex/run_lualatex.py",
