@@ -212,6 +212,14 @@ latex_package(
 )
 
 latex_package(
+    name = "etex",
+    srcs = [
+        "@texlive_texmf__texmf-dist__tex__latex__etex-pkg",
+        ],
+    tests = [], # TODO: Add test
+)
+
+latex_package(
     name = "enumerate",
     srcs = [":tools"],
     tests = ["enumerate_test.tex"],
@@ -402,6 +410,12 @@ latex_package(
 )
 
 latex_package(
+    name = "hang",
+    srcs = ["@texlive_texmf__texmf-dist__tex__latex__hang"],
+    tests = [], # TODO: replace with real test
+)
+
+latex_package(
     name = "hanging",
     srcs = ["@texlive_texmf__texmf-dist__tex__latex__hanging"],
     tests = ["hanging_test.tex"],
@@ -479,6 +493,15 @@ latex_package(
 )
 
 latex_package(
+    name = "keycommand",
+    srcs = [
+        "@texlive_texmf__texmf-dist__tex__latex__keycommand",
+        ":etex",
+        ],
+    tests = [], # TODO: Add test
+)
+
+latex_package(
     name = "keyval",
     srcs = [":graphics_oberdiek"],
     tests = ["keyval_test.tex"],
@@ -509,6 +532,14 @@ latex_package(
         "@texlive_texmf__texmf-dist__tex__latex__l3packages__l3keys2e",
     ],
     tests = ["l3keys2e_test.tex"],
+)
+
+latex_package(
+    name = "lipsum",
+    srcs = [
+        "@texlive_texmf__texmf-dist__tex__latex__lipsum",
+    ],
+    tests = [], # TODO: Replace with real test
 )
 
 latex_package(
@@ -626,6 +657,12 @@ latex_package(
 )
 
 latex_package(
+    name = "numprint",
+    srcs = ["@texlive_texmf__texmf-dist__tex__latex__numprint"],
+    tests = [], # TODO: Add real test
+)
+
+latex_package(
     name = "nth",
     srcs = [":genmisc"],
     tests = ["nth_test.tex"],
@@ -680,6 +717,15 @@ latex_package(
     name = "placeins",
     srcs = ["@texlive_texmf__texmf-dist__tex__latex__placeins"],
     tests = ["placeins_test.tex"],
+)
+
+latex_package(
+    name = "psnfss",
+    srcs = [
+        ":keyval",
+        "@texlive_texmf__texmf-dist__tex__latex__psnfss",
+    ],
+    tests = [], # TODO: Add real test
 )
 
 latex_package(
@@ -1045,14 +1091,6 @@ filegroup(
 filegroup(
     name = "preprint",
     srcs = ["@texlive_texmf__texmf-dist__tex__latex__preprint"],
-)
-
-filegroup(
-    name = "psnfss",
-    srcs = [
-        ":keyval",
-        "@texlive_texmf__texmf-dist__tex__latex__psnfss",
-    ],
 )
 
 filegroup(
