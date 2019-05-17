@@ -220,6 +220,15 @@ latex_package(
 )
 
 latex_package(
+    name = "drawstack",
+    srcs = [
+        ":tikz",
+        "@texlive_texmf__texmf-dist__tex__latex__drawstack",
+    ],
+    tests = ["drawstack_test.tex"],
+)
+
+latex_package(
     name = "enumerate",
     srcs = [":tools"],
     tests = ["enumerate_test.tex"],
@@ -266,6 +275,12 @@ latex_package(
     name = "everyshi",
     srcs = [":ms"],
     tests = ["everyshi_test.tex"],
+)
+
+latex_package(
+    name = "exam",
+    srcs = ["@texlive_texmf__texmf-dist__tex__latex__exam"],
+    tests = ["exam_test.tex"],
 )
 
 latex_package(
@@ -660,6 +675,12 @@ latex_package(
     name = "numprint",
     srcs = ["@texlive_texmf__texmf-dist__tex__latex__numprint"],
     tests = [], # TODO: Add real test
+)
+
+latex_package(
+    name = "multicol",
+    srcs = ["@texlive_texmf__texmf-dist__tex__latex__tools"],
+    tests = ["multicol_test.tex"],
 )
 
 latex_package(
